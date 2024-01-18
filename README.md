@@ -1,7 +1,7 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
 
-[![](https://jitpack.io/v/aredblock/Aeon.svg)](https://jitpack.io/#HttpMarco/Aeon)
+
 <div>
     <h1>Minestom-Virtual</h1>
     <a href="https://discord.gg/YZ45WMJtuY">SUPPORT DISCORD</a>
@@ -26,8 +26,9 @@ Maven Dependency
 </dependency>
 ````
 
+The newest version:
 
-The newest version: https://jitpack.io/#aredblock/Minestom-virtual
+[![](https://jitpack.io/v/aredblock/Minestom-virtual.svg)](https://jitpack.io/#aredblock/Minestom-virtual)
 
 ***
 
@@ -74,7 +75,7 @@ public class Main{
             if(event.getItemStack().material() == Material.DIAMOND && minecraftServerInstance.isPlayerOnline(player)){
                 minecraftServerInstance.remove(player);
             } else if (event.getItemStack().material() == Material.APPLE && !minecraftServerInstance.isPlayerOnline(player)) {
-                minecraftServerInstance.join(player,instanceContainer);
+                minecraftServerInstance.join(player,defaultInstanceContainer);
             }
         });
         
