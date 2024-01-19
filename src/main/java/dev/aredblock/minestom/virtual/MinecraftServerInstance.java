@@ -43,9 +43,10 @@ public class MinecraftServerInstance {
         fallbackInstances.put(player,fallbackInstance);
 
         MinecraftServer.getGlobalEventHandler().call(new PlayerJoinedServerInstanceEvent(player,this));
+        Gate.addPlayer(player,this);
     }
 
-    public void remove(@NotNull Player player){
+    public void disconnect(@NotNull Player player){
         onlinePlayers.remove(player);
 
         privateEventHandler.removePlayer(player);
@@ -54,6 +55,7 @@ public class MinecraftServerInstance {
         fallbackInstances.remove(player);
 
         MinecraftServer.getGlobalEventHandler().call(new PlayerDisconnectServerInstanceEvent(player,this));
+        Gate.removePlayer(player);
     }
 
     public boolean isPlayerOnline(@NotNull Player player){

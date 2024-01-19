@@ -1,7 +1,6 @@
 package dev.aredblock.test;
 
 import dev.aredblock.minestom.virtual.MinecraftServerInstance;
-import dev.aredblock.minestom.virtual.events.PlayerJoinedServerInstanceEvent;
 import dev.aredblock.test.builder.DemoEventBuilder;
 import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
@@ -51,7 +50,7 @@ public class Main {
         globalEventHandler.addListener(PlayerUseItemEvent.class,event -> {
             final Player player = event.getPlayer();
             if(event.getItemStack().material() == Material.DIAMOND && minecraftServerInstance.isPlayerOnline(player)){
-                minecraftServerInstance.remove(player);
+                minecraftServerInstance.disconnect(player);
             } else if (event.getItemStack().material() == Material.APPLE && !minecraftServerInstance.isPlayerOnline(player)) {
                 minecraftServerInstance.join(player,instanceContainer);
             }
